@@ -1,0 +1,5 @@
+sender_email=sender@domain.com
+password_sender=password
+recipient_email=recipient@domain.com
+smtp_server=smtp.domain.com
+smtp_port=465

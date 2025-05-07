@@ -1,0 +1,20 @@
+# Ignorar arquivos binários e objetos
+*.o
+*.obj
+*.exe
+
+# Ignorar arquivos temporários do sistema
+*.log
+*.tmp
+
+# Ignorar arquivos gerados por editores
+*.swp
+*.swo
+*.bak
+
+# Diretórios do sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos de build
+build/

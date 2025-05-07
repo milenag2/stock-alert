@@ -1,0 +1,33 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Compilar com libcurl + json",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "-std=c++17",
+        "src/main.cpp",
+        "src/email_sender.cpp",
+        "src/config_reader.cpp",
+        "src/stock_fetcher.cpp",
+        "-o",
+        "main.exe",
+        "-Iheaders",
+        "-Iinclude",
+        "-I${workspaceFolder}/vcpkg/installed/x64-mingw-dynamic/include",
+        "-L${workspaceFolder}/vcpkg/installed/x64-mingw-dynamic/lib",
+        "-lcurl"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"],
+      "detail": "Compila o código C++ com suporte à libcurl e nlohmann/json"
+    }
+  ]
+}
