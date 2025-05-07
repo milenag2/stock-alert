@@ -18,8 +18,11 @@ O programa utiliza um arquivo de configuração (config.txt) para armazenar info
 # Arquivo de configuração para o Stock Quote Alert
 Prepare o arquivo de configuração (config.txt) conforme o modelo:
 sender_email=seu-email@example.com
+
 recipient_email=email-destino@example.com
+
 sender_password=sua-senha
+
 smtp_server=smtp.exemplo.com
 smtp_port=465
 
