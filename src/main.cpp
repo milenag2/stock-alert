@@ -16,7 +16,6 @@ int main(){
   int interval=1;
   float sellLimit, buyLimit;
   optional<float> quotePrice;
-  bool alertBuy = false, alertSell = false;
   map<string, string> config = readFile("./files/config.txt");
   if (config.empty()) {
     cerr << "Erro: arquivo de configuração vazio ou não encontrado. Encerrando o programa." << endl;
@@ -41,19 +40,11 @@ int main(){
         exit(1);
     }
     if(quotePrice.has_value()){
-      if(quotePrice.value()>sellLimit && !alertSell){
-        alertSell = true;
-        alertBuy = false;
+      if(quotePrice.value()>sellLimit){
         alert = Alert::Sell;
         sendEmail(senderEmail, recipientEmail, senderPassword, ticker, alert, smtpUrl);
       }
-      else if(quotePrice.value()>=buyLimit && quotePrice.value() <= sellLimit){
-        alertSell = false;
-        alertBuy = false;
-      }
-      else if(quotePrice.value()<buyLimit && !alertBuy){
-        alertSell = false;
-        alertBuy = true;
+      else if(quotePrice.value()<buyLimit){
         alert = Alert::Buy;
         sendEmail(senderEmail, recipientEmail, senderPassword, ticker, alert, smtpUrl);
       }
